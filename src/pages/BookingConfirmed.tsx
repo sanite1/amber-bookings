@@ -1,13 +1,6 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import {
-  CheckCircle,
-  Phone,
-  Mail,
-  Clock,
-  ArrowRight,
-  AlertCircle,
-} from "lucide-react";
+import { CheckCircle, Phone, Mail, Clock, ArrowRight } from "lucide-react";
 
 export default function BookingConfirmed() {
   const navigate = useNavigate();

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { ChevronRight, Award, Zap } from "lucide-react";
@@ -8,8 +8,6 @@ export default function OurCourses() {
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
-
-  const [hoveredId, setHoveredId] = useState(null);
 
   return (
     <section className="py-24 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
@@ -46,8 +44,6 @@ export default function OurCourses() {
               key={item.id}
               data-aos="fade-up"
               data-aos-delay={item.id * 50}
-              // onMouseEnter={() => setHoveredId(item.id)}
-              onMouseLeave={() => setHoveredId(null)}
               className="group relative h-full"
             >
               {/* Card Background Glow */}

@@ -113,7 +113,7 @@ export const DateTimePickerDialog = ({
   const handleTimeSelect = (time: string) => {
     if (!selectedDateForTime) return;
 
-    const dateTimeString = `${selectedDateForTime}T${time}`;
+    // const dateTimeString = `${selectedDateForTime}T${time}`;
     const exists = selectedDates.some(
       (d) => d.date === selectedDateForTime && d.time === time
     );

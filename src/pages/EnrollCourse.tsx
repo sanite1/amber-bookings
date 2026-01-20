@@ -14,15 +14,10 @@ import {
   CheckCircle,
   Calendar as CalendarIcon,
   X,
-  ChevronLeft,
-  AlertCircle,
 } from "lucide-react";
 import { trainings } from "../data/firstaidCourses";
-import {
-  DateTimePickerDialog,
-  MOCK_BOOKED_DATES,
-} from "../components/Course/DateTimePickerDialog";
-import { useFetchBookingDates, useSubmitBooking } from "../lib/api/book-course";
+import { DateTimePickerDialog } from "../components/Course/DateTimePickerDialog";
+import { useSubmitBooking } from "../lib/api/book-course";
 import { CourseApprovalPayload } from "../lib/types/book-course";
 
 const formSchema = z
@@ -97,7 +92,6 @@ export default function EnrollCourse() {
   >([]);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
-  const [isLoadingDates, setIsLoadingDates] = useState(false);
 
   const form = useForm<BookingFormData>({
     resolver: zodResolver(formSchema),
@@ -146,10 +140,6 @@ export default function EnrollCourse() {
 
   // Simulate loading booked dates
   const handleOpenDialog = () => {
-    setIsLoadingDates(true);
-    setTimeout(() => {
-      setIsLoadingDates(false);
-    }, 1500);
     setIsDialogOpen(true);
   };
 
