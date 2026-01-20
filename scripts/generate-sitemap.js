@@ -17,10 +17,11 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
   </url>
 </urlset>`;
 
+// Output to build folder
 const buildPath = path.join(__dirname, "../build");
 if (!fs.existsSync(buildPath)) {
   fs.mkdirSync(buildPath, { recursive: true });
 }
 
 fs.writeFileSync(path.join(buildPath, "sitemap.xml"), sitemap);
-console.log("✅ Sitemap generated successfully");
+console.log("✅ Sitemap generated successfully at build/sitemap.xml");
