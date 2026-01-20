@@ -27,7 +27,7 @@ export default function Home() {
       <div id="home" className="bg-white pt-[10vh]">
         <Hero />
       </div>
-      <div id="about" className="">
+      <div id="our-courses-section" className="">
         <OurCourses />
       </div>
     </div>

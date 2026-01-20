@@ -104,7 +104,7 @@ export default function OurCourses() {
                   </div>
 
                   {/* Footer */}
-                  <div className="flex items-center justify-between pt-4 border-t border-slate-600">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between pt-4 border-t border-slate-600 gap-4">
                     <div className="text-left">
                       <span className="text-gray-400 text-xs block">
                         Starting at
@@ -122,8 +122,11 @@ export default function OurCourses() {
                       </div>
                     </div>
 
-                    <a href={`/our-courses/${item.link}`}>
-                      <button className="group/btn bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-4 py-2 rounded-lg font-semibold flex items-center gap-2 transition-all duration-300 transform hover:translate-x-1">
+                    <a
+                      href={`/our-courses/${item.link}`}
+                      className="w-full sm:w-auto"
+                    >
+                      <button className="w-full sm:w-auto group/btn bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-4 py-2 rounded-lg font-semibold flex items-center justify-center sm:justify-start gap-2 transition-all duration-300 transform hover:translate-x-1">
                         Enroll
                         <ChevronRight
                           size={18}

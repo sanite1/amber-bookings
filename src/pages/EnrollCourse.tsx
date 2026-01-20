@@ -190,7 +190,7 @@ export default function EnrollCourse() {
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
       </div>
 
-      <div className="container mx-auto px-6 md:px-12 relative z-10 py-12">
+      <div className="container mx-auto px-4 md:px-12 relative z-10 py-12">
         {/* Breadcrumb */}
         <div className="flex items-center gap-3 mb-12">
           <a href="/" className="text-gray-400 hover:text-gray-300 text-sm">
@@ -341,7 +341,7 @@ export default function EnrollCourse() {
 
           {/* Right Side - Booking Form */}
           <div className="lg:col-span-3">
-            <div className="bg-gradient-to-br from-slate-800 to-slate-700 border border-slate-600 rounded-2xl p-8 shadow-2xl">
+            <div className="bg-gradient-to-br from-slate-800 to-slate-700 border border-slate-600 rounded-2xl p-4 md:p-8 shadow-2xl">
               <h2 className="text-3xl font-bold text-white mb-2">
                 Book Your Course
               </h2>
