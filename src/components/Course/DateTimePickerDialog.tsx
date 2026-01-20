@@ -2,14 +2,6 @@ import { useFetchBookingDates } from "../../lib/api/book-course";
 import { AlertCircle, ChevronLeft, ChevronRight, X } from "lucide-react";
 import { useState } from "react";
 
-// Mock booked dates from backend
-export const MOCK_BOOKED_DATES = [
-  { date: "2026-02-10", times: ["09:00", "14:00"] },
-  { date: "2026-02-12", times: ["10:00", "15:00", "16:00"] },
-  { date: "2026-02-15", times: ["09:00"] },
-  { date: "2026-02-18", times: ["14:00"] },
-];
-
 // Available time slots
 const TIME_SLOTS = [
   "09:00",
@@ -69,6 +61,14 @@ export const DateTimePickerDialog = ({
     return `${year}-${String(month + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
   };
 
+  // Check if date is in the past
+  const isPastDate = (dateString: string): boolean => {
+    const selectedDate = new Date(dateString + "T00:00:00");
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    return selectedDate < today;
+  };
+
   const { data, isFetching } = useFetchBookingDates();
 
   // Check if date is booked
@@ -97,23 +97,27 @@ export const DateTimePickerDialog = ({
 
   // Handle date click
   const handleDateClick = (day: number) => {
-    if (
-      isDateBooked(
-        formatDate(currentMonth.getFullYear(), currentMonth.getMonth(), day)
-      )
-    ) {
+    const dateString = formatDate(
+      currentMonth.getFullYear(),
+      currentMonth.getMonth(),
+      day
+    );
+
+    if (isPastDate(dateString)) {
+      return; // Don't allow selecting past dates
+    }
+
+    if (isDateBooked(dateString)) {
       return; // Don't allow selecting fully booked dates
     }
-    setSelectedDateForTime(
-      formatDate(currentMonth.getFullYear(), currentMonth.getMonth(), day)
-    );
+
+    setSelectedDateForTime(dateString);
   };
 
   // Handle time slot selection
   const handleTimeSelect = (time: string) => {
     if (!selectedDateForTime) return;
 
-    // const dateTimeString = `${selectedDateForTime}T${time}`;
     const exists = selectedDates.some(
       (d) => d.date === selectedDateForTime && d.time === time
     );
@@ -243,28 +247,43 @@ export const DateTimePickerDialog = ({
                       currentMonth.getMonth(),
                       day
                     );
+                    const isPast = isPastDate(dateString);
                     const isBooked = isDateBooked(dateString);
                     const isSelected = selectedDateForTime === dateString;
+                    const isDisabled = isPast || isBooked;
 
                     return (
                       <button
                         key={day}
                         onClick={() => handleDateClick(day)}
-                        disabled={isBooked}
+                        disabled={isDisabled}
                         className={`
                           p-2 rounded-lg font-medium text-sm transition-all
                           ${
-                            isBooked
-                              ? "bg-slate-600 text-gray-500 cursor-not-allowed opacity-50"
-                              : isSelected
-                                ? "bg-orange-500 text-white shadow-lg"
-                                : "bg-slate-700 text-white hover:bg-slate-600"
+                            isPast
+                              ? "bg-slate-700 text-gray-600 cursor-not-allowed opacity-40 hover:bg-slate-700"
+                              : isBooked
+                                ? "bg-slate-600 text-gray-500 cursor-not-allowed opacity-50"
+                                : isSelected
+                                  ? "bg-orange-500 text-white shadow-lg"
+                                  : "bg-slate-700 text-white hover:bg-slate-600"
                           }
                         `}
-                        title={isBooked ? "Fully booked" : ""}
+                        title={
+                          isPast
+                            ? "Date has passed"
+                            : isBooked
+                              ? "Fully booked"
+                              : ""
+                        }
                       >
                         {day}
-                        {isBooked && (
+                        {isPast && (
+                          <div className="text-xs mt-1 text-gray-500 hidden md:block">
+                            past
+                          </div>
+                        )}
+                        {!isPast && isBooked && (
                           <div className="text-xs mt-1 text-red-400 hidden md:block">
                             booked
                           </div>
