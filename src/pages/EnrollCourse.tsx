@@ -302,9 +302,9 @@ export default function EnrollCourse() {
                 </div>
 
                 {/* Description */}
-                <p className="text-gray-300 text-sm leading-relaxed mb-6">
+                {/* <p className="text-gray-300 text-sm leading-relaxed mb-6">
                   {selectedItem.desc}
-                </p>
+                </p> */}
 
                 {/* Ideal For */}
                 <div className="bg-slate-700/50 rounded-lg p-4 border border-slate-600">

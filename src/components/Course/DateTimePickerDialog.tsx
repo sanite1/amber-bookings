@@ -376,7 +376,10 @@ export const DateTimePickerDialog = ({
                           </span>
                         )}
                         {status === "fully-booked" && (
-                          <Lock size={12} className="absolute top-1 right-1" />
+                          <Lock
+                            size={12}
+                            className="absolute top-1 right-1 hidden md:inline-block"
+                          />
                         )}
                       </button>
                     );
@@ -451,7 +454,7 @@ export const DateTimePickerDialog = ({
                               booked
                                 ? "bg-red-500/20 text-red-300 cursor-not-allowed opacity-50 border border-red-500/30"
                                 : selected
-                                  ? "bg-green-500 text-white shadow-lg shadow-green-500/50 border-2 border-green-600"
+                                  ? "bg-green-500/60 text-white shadow-lg shadow-green-500/50 border-2 border-green-600"
                                   : "bg-slate-600 text-white hover:bg-orange-500 border border-slate-500 hover:border-orange-500"
                             }
                           `}
