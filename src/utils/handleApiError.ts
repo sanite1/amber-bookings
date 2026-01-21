@@ -60,7 +60,7 @@ const handleApiError = (
         (data?.error && data?.error[0]?.message) ||
         data?.message ||
         data?.data ||
-        "You are not authorized to perform this action"
+        "You are not authorised to perform this action"
       );
     case 404:
       return (

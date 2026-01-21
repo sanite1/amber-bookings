@@ -47,7 +47,7 @@ export default function CoursesHero() {
             className="text-lg text-gray-900 mb-8"
           >
             Master essential first aid and safety certifications designed for
-            professionals and organizations. Gain Ofqual-approved qualifications
+            professionals and organisations. Gain Ofqual-approved qualifications
             that advance your career and protect your community.
           </p>
 

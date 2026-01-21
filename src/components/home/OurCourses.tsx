@@ -70,7 +70,7 @@ export default function OurCourses() {
                 {/* Content */}
                 <div className="p-6 flex-grow flex flex-col">
                   {/* Course Title */}
-                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-orange-400 transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-orange-400 transition-colors duration-300 line-clamp-1">
                     {item.name}
                   </h3>
 
@@ -88,7 +88,7 @@ export default function OurCourses() {
 
                   {/* Description */}
                   <p className="text-gray-300 text-sm mb-4 line-clamp-2">
-                    {item.desc}
+                    {item.idealFor}
                   </p>
 
                   {/* Highlights */}

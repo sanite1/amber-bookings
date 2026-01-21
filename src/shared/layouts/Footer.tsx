@@ -5,7 +5,7 @@ import Logo from "../../assets/images/amberLogo.png";
 const faqs = [
   {
     q: "What qualifications will I gain?",
-    a: "All our courses are Ofqual-regulated and FAA-approved. You'll receive a CPD-certified first aid qualification recognized across the UK for workplace compliance.",
+    a: "All our courses are Ofqual-regulated and FAA-approved. You'll receive a CPD-certified first aid qualification recognised across the UK for workplace compliance.",
   },
   {
     q: "Do I need any prior experience?",
@@ -21,7 +21,7 @@ const faqs = [
   },
   // {
   //   q: "Can you deliver training at our workplace or school?",
-  //   a: "Yes! We offer bespoke in-house training tailored to your organization's needs. Whether you're a school, nursery, or workplace, we can deliver training onsite. Get in touch for a customized quote.",
+  //   a: "Yes! We offer bespoke in-house training tailored to your organisation's needs. Whether you're a school, nursery, or workplace, we can deliver training onsite. Get in touch for a customised quote.",
   // },
   // {
   //   q: "What topics are covered in your courses?",
